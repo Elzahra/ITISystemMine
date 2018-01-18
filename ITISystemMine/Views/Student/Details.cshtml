@@ -1,0 +1,64 @@
+﻿@model ITISystemMine.Models.Student
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Student Details</h2>
+
+<div>
+    @Html.LabelFor(s => s.FirstName)
+    @Html.TextBoxFor(s => s.FirstName, new { @class = "form-control", @readonly = "readonly" })
+</div>
+<div>
+    @Html.LabelFor(s => s.LastName)
+    @Html.TextBoxFor(s => s.LastName, new { @class = "form-control", @readonly = "readonly" })
+</div>
+<div>
+    @Html.LabelFor(s => s.BirthDate)
+    @Html.TextBoxFor(s => s.BirthDate, new { @class = "form-control", @readonly = "readonly" })
+</div>
+<div>
+    @Html.LabelFor(s => s.Email)
+    @Html.TextBoxFor(s => s.Email, new { @class = "form-control", @readonly = "readonly" })
+</div>
+<div>
+    @Html.LabelFor(s => s.UserName)
+    @Html.TextBoxFor(s => s.UserName, new { @class = "form-control", @readonly = "readonly" })
+</div>
+<div>
+    @Html.LabelFor(s => s.Password)
+    @Html.TextBoxFor(s => s.Password, new { @class = "form-control", @readonly = "readonly" })
+</div>
+<div>
+    @Html.LabelFor(s => s.Attend_Balance)
+    @Html.TextBoxFor(s => s.Attend_Balance, new { @class = "form-control", @Value = "600", @readonly = "readonly" })
+</div>
+<div>
+    @Html.LabelFor(s => s.Telephone)
+    @Html.TextBoxFor(s => s.Telephone, new { @class = "form-control", @readonly = "readonly" })
+</div>
+<div>
+    @Html.LabelFor(s => s.Address.Country)
+    @Html.TextBoxFor(s => s.Address.Country, new { @class = "form-control", @readonly = "readonly" })
+</div>
+<div>
+    @Html.LabelFor(s => s.Address.City)
+    @Html.TextBoxFor(s => s.Address.City, new { @class = "form-control", @readonly = "readonly" })
+</div>
+<div>
+    @Html.LabelFor(s => s.Address.Street)
+    @Html.TextBoxFor(s => s.Address.Street, new { @class = "form-control", @readonly = "readonly" })
+</div>
+<div>
+    @Html.LabelFor(s => s.Department_Key)
+    @Html.TextBoxFor(s => s.Department.Name, new { @class = "form-control", @readonly = "readonly" })
+   @* @Html.DropDownListFor(s => s.Student.Department_Key, new SelectList(Model.Departments, "Id", "Name"), "Select Department", new { @class = "form-control" })*@
+</div>
+<div>
+    <br />
+    @Html.ActionLink("Go Back", "Back","",new { @class="btn btn-primary"})
+</div>
+
+
+

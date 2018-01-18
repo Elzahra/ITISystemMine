@@ -1,0 +1,80 @@
+﻿@model ITISystemMine.ViewModel.StudentDepartmentViewModel
+@{
+    ViewBag.Title = "StudentForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Student Form</h2>
+@using (Html.BeginForm("Save", "Student", FormMethod.Post, "novalidate"))
+{
+    <div>
+        @Html.LabelFor(s => s.Student.FirstName)
+        @Html.TextBoxFor(s => s.Student.FirstName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(s => s.Student.FirstName, "", new { @class = "text-danger" })
+    </div>
+    <div>
+        @Html.LabelFor(s => s.Student.LastName)
+        @Html.TextBoxFor(s => s.Student.LastName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(s => s.Student.LastName, "", new { @class = "text-danger" })
+    </div>
+    <div>
+        @Html.LabelFor(s => s.Student.BirthDate)
+        @*@Html.TextBoxFor(s => s.Student.BirthDate, new { @type = "date", @class = "form-control" })*@
+        @Html.EditorFor(s => s.Student.BirthDate,"",new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(s => s.Student.BirthDate, "", new { @class = "text-danger" })
+    </div>
+    <div>
+        @Html.LabelFor(s => s.Student.Email)
+        @Html.TextBoxFor(s => s.Student.Email, new { @class = "form-control" })
+        @Html.ValidationMessageFor(s => s.Student.Email, "", new { @class = "text-danger" })
+    </div>
+    <div>
+        @Html.LabelFor(s => s.Student.UserName)
+        @Html.TextBoxFor(s => s.Student.UserName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(s => s.Student.UserName, "", new { @class = "text-danger" })
+    </div>
+    <div>
+        @Html.LabelFor(s => s.Student.Password)
+        @Html.TextBoxFor(s => s.Student.Password, new { @class = "form-control" })
+        @Html.ValidationMessageFor(s => s.Student.Password, "", new { @class = "text-danger" })
+    </div>
+    <div>
+        @Html.LabelFor(s => s.Student.Attend_Balance)
+        @Html.TextBoxFor(s => s.Student.Attend_Balance, new { @class = "form-control", @Value = "600", @readonly = "readonly" })
+        @Html.ValidationMessageFor(s => s.Student.Attend_Balance, "", new { @class = "text-danger" })
+    </div>
+    <div>
+        @Html.LabelFor(s => s.Student.Telephone)
+        @Html.TextBoxFor(s => s.Student.Telephone, new { @class = "form-control" })
+        @Html.ValidationMessageFor(s => s.Student.Telephone, "", new { @class = "text-danger" })
+    </div>
+    <div>
+        @Html.LabelFor(s => s.Student.Address.Country)
+        @Html.TextBoxFor(s => s.Student.Address.Country, new { @class = "form-control" })
+        @Html.ValidationMessageFor(s => s.Student.Address.Country, "", new { @class = "text-danger" })
+    </div>
+    <div>
+        @Html.LabelFor(s => s.Student.Address.City)
+        @Html.TextBoxFor(s => s.Student.Address.City, new { @class = "form-control" })
+        @Html.ValidationMessageFor(s => s.Student.Address.City, "", new { @class = "text-danger" })
+    </div>
+    <div>
+        @Html.LabelFor(s => s.Student.Address.Street)
+        @Html.TextBoxFor(s => s.Student.Address.Street, new { @class = "form-control" })
+        @Html.ValidationMessageFor(s => s.Student.Address.Street, "", new { @class = "text-danger" })
+    </div>
+    <div>
+        @Html.LabelFor(s => s.Student.Department_Key)
+        @Html.DropDownListFor(s => s.Student.Department_Key, new SelectList(Model.Departments, "Id", "Name"), "Select Department", new { @class = "form-control" })
+        @Html.ValidationMessageFor(s => s.Student.Department_Key, "", new { @class = "text-danger" })
+    </div>
+    <div>
+        @Html.HiddenFor(s=>s.Student.Id)
+    </div>
+    <div>
+        <br />
+        <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+}
+
+
