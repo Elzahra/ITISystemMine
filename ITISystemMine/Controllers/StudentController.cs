@@ -17,6 +17,7 @@ namespace ITISystemMine.Controllers
         }
         public ActionResult Index()
         {
+            var x = 56;
             IList<Student> Students = ITI.Students.ToList();
             return View(Students);
         }
